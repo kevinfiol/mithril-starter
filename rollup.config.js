@@ -11,9 +11,9 @@ import livereload from 'rollup-plugin-livereload';
 import Processor from '@modular-css/processor';
 import mcss from '@modular-css/rollup';
 import purgecss from '@fullhuman/postcss-purgecss';
-import tailwindcss from 'tailwindcss';
 import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
+import postcssImport from 'postcss-import';
 
 const isProd = process.env.PROD === 'true';
 const isDev  = process.env.DEV === 'true';
@@ -21,7 +21,7 @@ const isDev  = process.env.DEV === 'true';
 const config = {
     input: './src/index.js',
     output: {
-        file: './dist/bundle.js',
+        file: './public/bundle.js',
         format: 'iife',
         sourcemap: isDev,
         assetFileNames: 'bundle[extname]'
@@ -40,24 +40,25 @@ const config = {
             map: isDev,
             include: './src/**/*.css',
             processor: new Processor({
-                processing: [
-                    tailwindcss
-                ],
                 done: isProd && [
                     purgecss({
-                        content: ['./dist/**/*.html', './src/**/*.js', './src/**/*.css'],
+                        content: ['./public/**/*.html', './src/**/*.js', './src/**/*.css'],
                         defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-                        whitelistPatterns: [/^mc.*/]
+                        whitelistPatterns: [/^mc.*/] // modular-css namespace
                     }),
                     cssnano(),
                     autoprefixer
-                ]
+                ],
+                after: [ postcssImport ]
             })
         }),
 
         sucrase({
+            production: true,
             exclude: ['node_modules/**'],
-            transforms: []
+            transforms: ['jsx'],
+            jsxPragma: 'm',
+            jsxFragmentPragma: 'm.fragment'
         }),
         nodeResolve(),
         commonjs(),
@@ -66,8 +67,8 @@ const config = {
         isProd && terser.terser(),
 
         // Development-only Plugins
-        isDev && serve({ contentBase: 'dist', port: 8090 }),
-        isDev && livereload('dist')
+        isDev && serve({ contentBase: 'public', port: 8090 }),
+        isDev && livereload('public')
     ]
 };
 

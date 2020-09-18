@@ -1,23 +1,31 @@
-import './styles/tailwind.css';
-import './styles/global.css';
-
+import './styles/index.css';
 import m from 'mithril';
-import { state, actions } from './state/container';
 
 import Counter from './components/Counter';
 
+const State = () => ({ num: 0 });
+
+const Actions = state => ({
+    increment: () => state.num += 1,
+    decrement: () => state.num -= 1
+});
+
 const App = {
     view: ({ attrs: { state, actions } }) =>
-        m('div.container.max-w-xl.mx-auto.p-3',
-            m('h1.text-4xl', 'Mithril Starter'),
-            m('p', 'This is a sample Mithril.js application. It uses the Meiosis/Mitosis State Management Pattern.'),
-            m(Counter, { state, actions })
-        )
+        <div className="max-width-3 mx-auto p3">
+            <h1>Mithril Starter</h1>
+            <p>This is a sample Mithril application.</p>
+            <Counter
+                num={state.num}
+                increment={actions.increment}
+                decrement={actions.decrement}
+            />
+        </div>
 };
 
-m.mount(document.getElementById('app'), {
-    view: () => m(App, { state, actions })
+m.mount(document.getElementById('app'), () => {
+    const state = State();
+    const actions = Actions(state);
 
-    // If using Meiosis State Management
-    // view: () => m(App, { state: state(), actions })
+    return { view: () => <App state={state} actions={actions} /> };
 });

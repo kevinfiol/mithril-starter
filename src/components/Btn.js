@@ -1,10 +1,11 @@
 import m from 'mithril';
 import { btn } from './styles/Btn.css';
 
-const StyledBtn = `button.${btn}`;
-
 const Btn = {
-    view: ({ attrs, children }) => m(StyledBtn, attrs, children)
+    view: ({ attrs, children }) =>
+        <button className={btn} {...attrs}>
+            {children}
+        </button>
 };
 
 export default Btn;

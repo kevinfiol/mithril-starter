@@ -2,16 +2,15 @@ import m from 'mithril';
 import Btn from './Btn';
 
 const Counter = {
-    view: ({ attrs: { state, actions } }) => 
-        m('div',
-            m('h2.text-3xl', state.num),
+    view: ({ attrs: { num, increment, decrement } }) => 
+        <div>
+            <h2>{num}</h2>
 
-            m('div.text-center',
-                m(Btn, { onclick: actions.incrementNum }, 'Increment'),
-                m(Btn, { onclick: actions.decrementNum }, 'Decrement'),
-                m(Btn, { onclick: actions.delayedIncrement }, 'Delayed Increment')
-            )
-        )
+            <div className="center">
+                <Btn onclick={increment}>Increment</Btn>
+                <Btn onclick={decrement}>Decrement</Btn>
+            </div>
+        </div>
 };
 
 export default Counter;
