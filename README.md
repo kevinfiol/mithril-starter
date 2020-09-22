@@ -40,7 +40,10 @@ import sucrase from '@rollup/plugin-sucrase';
 
 export default {
     input: './src/index.js',
-    output: outputConfig,
+    output: {
+        file: './public/bundle.js',
+        format: 'iife'
+    },
     plugins: [
         sucrase({
             production: true,
