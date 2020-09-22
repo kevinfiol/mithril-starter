@@ -1,5 +1,6 @@
 {
   "name": "mithril-starter",
+  "license": "MIT",
   "main": "src/index.js",
   "scripts": {
     "dev": "rollup -c -w --environment DEV",
