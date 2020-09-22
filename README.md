@@ -34,6 +34,7 @@ You can optionally use JSX with Mithril. The [official docs](https://mithril.js.
 
 Example using sucrase:
 ```js
+// rollup.config.js
 import nodeResolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import sucrase from '@rollup/plugin-sucrase';
