@@ -1,5 +1,4 @@
 // JS
-import sucrase from '@rollup/plugin-sucrase';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
@@ -53,13 +52,6 @@ const config = {
             })
         }),
 
-        sucrase({
-            production: true,
-            exclude: ['node_modules/**'],
-            transforms: ['jsx'],
-            jsxPragma: 'm',
-            jsxFragmentPragma: 'm.fragment'
-        }),
         nodeResolve(),
         commonjs(),
 

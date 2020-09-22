@@ -2,7 +2,7 @@
 
 A minimal [Mithril](https://mithril.js.org) starter project using [rollup](http://rollupjs.org/) for bundling, [modular-css](https://m-css.com/) for CSS modules, [basscss](https://basscss.com/) (w/ addons) for styles, and [ospec](https://github.com/MithrilJS/mithril.js/tree/next/ospec) for testing... and Mithril for [XHR, routing, reactive streams, etc.](https://mithril.js.org/api.html).
 
-This is a sequel to my [preact-starter](https://github.com/kevinfiol/preact-starter). The difference here is that we're using the great Mithril.js framework which is tried and tested and comes batteries-included with a bunch of goodies. I set this project up to use JSX, but you can easily remove the JSX pragma & transforms from the sucrase config in `rollup.config.js` to go the Mithril-flavored hyperscript route (my preferred method).
+This is a sequel to my [preact-starter](https://github.com/kevinfiol/preact-starter). The difference here is that we're using the great Mithril.js framework which is tried and tested and comes batteries-included with a bunch of goodies. This project assumes you're targeting modern browsers and thus does not include any transpilers. See [buble](https://github.com/rollup/plugins/tree/master/packages/buble), [sucrase](https://github.com/rollup/plugins/tree/master/packages/sucrase), or [babel](https://github.com/rollup/plugins/tree/master/packages/babel) for that.
 
 ## Running & Building
 
@@ -28,6 +28,29 @@ Test:
 yarn run test
 ```
 
-## Disclaimer
+## JSX
 
-This project uses [sucrase](https://github.com/alangpierce/sucrase) as a transpiler as opposed to Babel in order to optimize bundle build times, and also minimize dependencies. Sucrase is fine for production builds **so long as you're OK with only supporting modern browsers**. For that reason, don't expect this to work with IE11. See [buble](https://buble.surge.sh) if you need a zero-config transpiler with JSX support that also transpiles to ES5. Or [babel](https://babeljs.io/) if you want to go down that rabbithole.
+You can optionally use JSX with Mithril. The [official docs](https://mithril.js.org/jsx.html) are thorough in how to get started, although they use Babel. For a minimal config solution I recommend [sucrase](https://github.com/rollup/plugins/tree/master/packages/sucrase) if you're targeting ES6, or [buble](https://github.com/rollup/plugins/tree/master/packages/buble) for ES5.
+
+Example using sucrase:
+```js
+import nodeResolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import sucrase from '@rollup/plugin-sucrase';
+
+export default {
+    input: './src/index.js',
+    output: outputConfig,
+    plugins: [
+        sucrase({
+            production: true,
+            exclude: ['node_modules/**'],
+            transforms: ['jsx'],
+            jsxPragma: 'm',
+            jsxFragmentPragma: 'm.fragment'
+        }),
+        nodeResolve(),
+        commonjs(),
+    ]
+};
+```

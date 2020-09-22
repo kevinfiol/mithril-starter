@@ -12,20 +12,20 @@ const Actions = state => ({
 
 const App = {
     view: ({ attrs: { state, actions } }) =>
-        <div className="max-width-3 mx-auto p3">
-            <h1>Mithril Starter</h1>
-            <p>This is a sample Mithril application.</p>
-            <Counter
-                num={state.num}
-                increment={actions.increment}
-                decrement={actions.decrement}
-            />
-        </div>
+        m('div.max-width-3.mx-auto.p3',
+            m('h1', 'Mithril Starter'),
+            m('p', 'This is a sample Mithril application.'),
+            m(Counter, {
+                num: state.num,
+                increment: actions.increment,
+                decrement: actions.decrement
+            })
+        )
 };
 
 m.mount(document.getElementById('app'), () => {
     const state = State();
     const actions = Actions(state);
 
-    return { view: () => <App state={state} actions={actions} /> };
+    return { view: () => m(App, { state, actions }) };
 });
