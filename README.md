@@ -6,7 +6,7 @@ This is a sequel to my [preact-starter](https://github.com/kevinfiol/preact-star
 
 ## Running & Building
 
-I used [yarn v1](https://classic.yarnpkg.com/lang/en/) for this project, but you can easily use npm if you wish.
+I used [yarn v1](https://classic.yarnpkg.com/lang/en/) for this project, but you can use npm if you wish.
 
 Install dependencies:
 ```
