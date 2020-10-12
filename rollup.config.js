@@ -59,7 +59,7 @@ const config = {
         isProd && terser.terser(),
 
         // Development-only Plugins
-        isDev && serve({ contentBase: 'public', port: 8090 }),
+        isDev && serve({ contentBase: 'public', port: 8090, historyApiFallback: true }),
         isDev && livereload('public')
     ]
 };
