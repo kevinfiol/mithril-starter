@@ -8,26 +8,26 @@ This is a sequel to my [preact-starter](https://github.com/kevinfiol/preact-star
 
 ## Running & Building
 
-I used [yarn v1](https://classic.yarnpkg.com/lang/en/) for this project, but you can use npm if you wish.
+I used [pnpm](https://pnpm.js.org/) for this project, but you can use npm or yarn if you wish.
 
 Install dependencies:
 ```
-yarn
+pnpm install
 ```
 
 Run:
 ```
-yarn run dev
+pnpm run dev
 ```
 
 Build:
 ```
-yarn run build
+pnpm run build
 ```
 
 Test:
 ```
-yarn run test
+pnpm run test
 ```
 
 ## JSX
