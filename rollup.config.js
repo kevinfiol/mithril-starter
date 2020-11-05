@@ -20,7 +20,7 @@ const isDev  = process.env.DEV === 'true';
 const config = {
     input: './src/index.js',
     output: {
-        file: './public/bundle.js',
+        file: './public/app/bundle.js',
         format: 'iife',
         sourcemap: isDev,
         assetFileNames: 'bundle[extname]'

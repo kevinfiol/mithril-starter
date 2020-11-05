@@ -14,7 +14,7 @@ const App = {
     view: ({ attrs: { state, actions } }) =>
         m('div.max-width-3.mx-auto.p3',
             m('h1', 'Mithril Starter'),
-            m('p', 'This is a sample Mithril application.'),
+            m('p.test-me', 'This is a sample Mithril application.'),
             m(Counter, {
                 num: state.num,
                 increment: actions.increment,
