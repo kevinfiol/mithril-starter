@@ -1,3 +1,8 @@
 node_modules
+<<<<<<< HEAD
 public/**/bundle*
 *.map
+=======
+public/bundle*
+*.map
+>>>>>>> 8be48a8a5d00f4dddc9732433a2b28bde6e802dd
