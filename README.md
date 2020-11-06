@@ -6,27 +6,21 @@ State management is handled using simple objects and functions, and leveraging M
 
 This is a sequel to my [preact-starter](https://github.com/kevinfiol/preact-starter). The difference here is that we're using the great Mithril.js framework which is tried and tested and comes batteries-included with a bunch of goodies. This project assumes you're targeting modern browsers and thus does not include any transpilers. See [buble](https://github.com/rollup/plugins/tree/master/packages/buble), [sucrase](https://github.com/rollup/plugins/tree/master/packages/sucrase), or [babel](https://github.com/rollup/plugins/tree/master/packages/babel) for that.
 
-## Running & Building
+## Get Started
 
 I used [pnpm](https://pnpm.js.org/) for this project, but you can use npm or yarn if you wish.
 
-Install dependencies:
-```
+``` bash
+# install
 pnpm install
-```
 
-Run:
-```
+# run
 pnpm run dev
-```
 
-Build:
-```
+# build
 pnpm run build
-```
 
-Test:
-```
+# test
 pnpm run test
 ```
 
