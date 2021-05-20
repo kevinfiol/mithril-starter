@@ -2,7 +2,7 @@
 
 ## Status Update 05/20/2021
 
-Since I've created this repository, [Vite](https://github.com/vitejs/vite) has become usable. If you have no need for CSS Modules and just need a bundler, consider using [esbuild](https://github.com/evanw/esbuild) itself (which Vite is built on for its dev mode).
+Since I've created this repository, [Vite](https://github.com/vitejs/vite) has become usable. If you have no need for CSS Modules and just need a bundler, consider using [esbuild](https://github.com/evanw/esbuild) itself (which Vite is built on for its dev mode). If you want to see a Mithril project that only uses esbuild for building and devmode, see my [mithril-pres bundle scripts](https://github.com/kevinfiol/mithril-pres/tree/master/scripts).
 
 ___
 
