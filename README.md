@@ -1,5 +1,9 @@
 # Mithril Starter
 
+## Status Update 05/20/2021
+
+Since I've created this repository, [Vite](https://github.com/vitejs/vite) has become usable. If you have no need for CSS Modules and just need a bundler, consider using [esbuild](https://github.com/evanw/esbuild) itself (which Vite is built on for its dev mode).
+
 A minimal [Mithril](https://mithril.js.org) starter project using [rollup](http://rollupjs.org/) for bundling, [modular-css](https://m-css.com/) for CSS modules, [basscss](https://basscss.com/) (w/ addons) for styles, and [ospec](https://github.com/MithrilJS/mithril.js/tree/next/ospec) for testing... and Mithril for [XHR, routing, reactive streams, etc.](https://mithril.js.org/api.html).
 
 State management is handled using simple objects and functions, and leveraging Mithril's auto-redraw feature (this pattern's been jokingly named "Mitosis" in the Mithril Gitter chat). [Read about my approach to minimal state management with Mithril here](https://kevinfiol.com/blog/simple-state-management-in-mithriljs/). Also see [Meiosis](http://meiosis.js.org/) by [foxdonut](https://github.com/foxdonut) for more complex use-cases.
